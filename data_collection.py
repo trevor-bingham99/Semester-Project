@@ -103,5 +103,22 @@ table_locator = "/html/body/div[7]/div[2]/div/div[1]/div[3]/div/div/div[2]/div/t
 
 all_rows = get_all_rows(driver, table_locator)
 
-# Now 'all_rows' contains all the rows in the table
-len(all_rows)
+header_columns = [span.get_text(strip=True) for span in all_rows[0].find_all('span', {'role': 'button'})]
+
+# Initialize an empty list to store row data
+all_rows_data = []
+
+# Iterate through each row
+for row_html in all_rows:
+    # Extract data from each cell in the row
+    data = [cell.get_text(strip=True) for cell in row_html.find_all('td', {'role': 'gridcell'})]
+    
+    # Create a dictionary for the row
+    row_dict = dict(zip(header_columns, data))
+    
+    # Append the row data to the list
+    all_rows_data.append(row_dict)
+
+# Create a DataFrame from the list of row data
+df = pd.DataFrame(all_rows_data)
+df.dropna(inplace=True)
