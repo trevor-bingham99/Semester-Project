@@ -40,14 +40,14 @@ df = pd.read_csv('./Utah_Housing_Unit_Inventory.csv')
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
 
-#pre = driver.find_element(By.TAG_NAME,"pre").text
-#data = json.loads(pre)
+pre = driver.find_element(By.TAG_NAME,"pre").text
+data = json.loads(pre)
 
-#df = pd.json_normalize(data['features'])
+df = pd.json_normalize(data['features'])
 
-#new_column_names = {col: col.replace('attributes.', '') for col in df.columns}
-#df.rename(columns=new_column_names, inplace=True)
-#df.set_index('OBJECTID', inplace=True)
+new_column_names = {col: col.replace('attributes.', '') for col in df.columns}
+df.rename(columns=new_column_names, inplace=True)
+df.set_index('OBJECTID', inplace=True)
 
 url1= 'https://opendata.gis.utah.gov/datasets/utah::utah-housing-unit-inventory/about'
 
@@ -70,7 +70,7 @@ def get_all_rows(driver, table_locator):
         new_row_count = len(driver.find_elements(By.XPATH, table_locator + "//tr"))
 
         # If the number of rows hasn't increased, break the loop
-        if new_row_count == current_row_count:
+        if new_row_count == current_row_count or new_row_count==10000:
             break
 
         # Update the last row count
@@ -120,5 +120,14 @@ for row_html in all_rows:
     all_rows_data.append(row_dict)
 
 # Create a DataFrame from the list of row data
-df = pd.DataFrame(all_rows_data)
-df.dropna(inplace=True)
+df1 = pd.DataFrame(all_rows_data)
+df1.dropna(inplace=True)
+
+combined_df = pd.concat([df, df1], ignore_index=True)
+combined_df.drop_duplicates(subset='UNIT_ID', keep='first',inplace=True)
+
+columns_to_convert_to_float = ['UNIT_ID', 'UNIT_COUNT', 'DUA','ACRES','TOT_BD_FT2','TOT_VALUE','APX_BLT_YR','BLT_DECADE','Shape__Area','Shape__Length','IS_OUG']
+
+# Convert specified columns to int
+combined_df[columns_to_convert_to_float] = combined_df[columns_to_convert_to_float].replace(",","",regex=True).replace('', 0).astype(float)
+
