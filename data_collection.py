@@ -13,6 +13,8 @@ import json
 import numpy as np
 import time
 from itertools import groupby
+import plotly.express as px
+
 
 def scroll(driver, timeout):
     # get scroll height
@@ -103,6 +105,8 @@ table_locator = "/html/body/div[7]/div[2]/div/div[1]/div[3]/div/div/div[2]/div/t
 
 all_rows = get_all_rows(driver, table_locator)
 
+driver.close()
+
 header_columns = [span.get_text(strip=True) for span in all_rows[0].find_all('span', {'role': 'button'})]
 
 # Initialize an empty list to store row data
@@ -131,3 +135,19 @@ columns_to_convert_to_float = ['UNIT_ID', 'UNIT_COUNT', 'DUA','ACRES','TOT_BD_FT
 # Convert specified columns to int
 combined_df[columns_to_convert_to_float] = combined_df[columns_to_convert_to_float].replace(",","",regex=True).replace('', 0).astype(float)
 
+fig = px.scatter(combined_df, x='TOT_VALUE', y='TOT_BD_FT2', color='SUBTYPE', title='Value vs Square Footage',opacity=.5)
+fig.show()
+
+fig = px.scatter(combined_df[(combined_df['APX_BLT_YR']!=0) & (combined_df['TOT_BD_FT2']<9000000)], x='APX_BLT_YR', y='TOT_BD_FT2', color='SUBTYPE', title='Decade Built vs Square Footage',opacity=.5)
+fig.show()
+
+category_counts = combined_df['SUBTYPE'].value_counts()
+
+# Exclude categories with a count of 0
+filtered_counts = category_counts[category_counts != 0]
+
+# Create the bar chart with the filtered counts
+fig = px.bar(x=filtered_counts.index, y=filtered_counts.values, text=filtered_counts.values,color=filtered_counts.index,title='Counts of Each Housing Subtype')
+fig.show()
+
+combined_df.to_csv('./HousingData.csv')
