@@ -135,11 +135,14 @@ columns_to_convert_to_float = ['UNIT_ID', 'UNIT_COUNT', 'DUA','ACRES','TOT_BD_FT
 # Convert specified columns to int
 combined_df[columns_to_convert_to_float] = combined_df[columns_to_convert_to_float].replace(",","",regex=True).replace('', 0).astype(float)
 
-fig = px.scatter(combined_df, x='TOT_VALUE', y='TOT_BD_FT2', color='SUBTYPE', title='Value vs Square Footage',opacity=.5)
-fig.show()
+scat1 = px.scatter(combined_df, x='TOT_VALUE', y='TOT_BD_FT2', color='SUBTYPE', title='Value vs Square Footage',opacity=.5)
+scat1.show()
 
-fig = px.scatter(combined_df[(combined_df['APX_BLT_YR']!=0) & (combined_df['TOT_BD_FT2']<9000000)], x='APX_BLT_YR', y='TOT_BD_FT2', color='SUBTYPE', title='Decade Built vs Square Footage',opacity=.5)
-fig.show()
+scat2 = px.scatter(combined_df[(combined_df['APX_BLT_YR']!=0) & (combined_df['TOT_BD_FT2']<9000000)], x='APX_BLT_YR', y='TOT_BD_FT2', color='SUBTYPE', title='Decade Built vs Square Footage',opacity=.5)
+scat2.show()
+
+scat3 = px.scatter(combined_df[(combined_df['APX_BLT_YR']!=0) & (combined_df['TOT_VALUE']<300000000) & (combined_df['ACRES']<500)], x='ACRES', y='TOT_VALUE', color='SUBTYPE', title='Acres of Land vs Total Value',opacity=.5)
+scat3.show()
 
 category_counts = combined_df['SUBTYPE'].value_counts()
 
@@ -147,7 +150,16 @@ category_counts = combined_df['SUBTYPE'].value_counts()
 filtered_counts = category_counts[category_counts != 0]
 
 # Create the bar chart with the filtered counts
-fig = px.bar(x=filtered_counts.index, y=filtered_counts.values, text=filtered_counts.values,color=filtered_counts.index,title='Counts of Each Housing Subtype')
-fig.show()
+bar = px.bar(x=filtered_counts.index, y=filtered_counts.values, text=filtered_counts.values,color=filtered_counts.index,title='Counts of Each Housing Subtype')
+bar.show()
 
-combined_df.to_csv('./HousingData.csv')
+hist = px.histogram(
+    combined_df[combined_df['TOT_VALUE']<9000000],
+    x='TOT_VALUE',
+    title='Distribution of Total Values',
+    nbins=50,  # Specify the number of bins
+    opacity=0.7  # Set opacity
+)
+hist.show()
+
+#combined_df.to_csv('./HousingData.csv')
