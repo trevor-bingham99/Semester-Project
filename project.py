@@ -153,6 +153,9 @@ scat2.show()
 scat3 = px.scatter(combined_df[(combined_df['APX_BLT_YR']!=0) & (combined_df['TOT_VALUE']<300000000) & (combined_df['ACRES']<500)], x='ACRES', y='TOT_VALUE', color='SUBTYPE', title='Acres of Land vs Total Value',opacity=.5)
 scat3.show()
 
+scat4 = px.scatter(combined_df[(combined_df['APX_BLT_YR']!=0) & (combined_df['TOT_BD_FT2']<9000000)], x='TOT_VALUE', y='TOT_BD_FT2', title='Price vs Square Footage',opacity=.5)
+scat4.show()
+
 category_counts = combined_df['SUBTYPE'].value_counts()
 
 # Exclude categories with a count of 0
