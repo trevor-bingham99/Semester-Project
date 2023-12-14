@@ -41,7 +41,7 @@ st.plotly_chart(heatmap,use_container_width=True)
 
 st.write("You can explore a lot of the correlations here, but one thing this made me want to look a bit into how the different types of dwellings might impact things like acres of the property, so I created a scatterplot that shows how the amount of acres and the price impact each other, colored by their type.")
 
-selected_categories = st.sidebar.multiselect('Select Sub-Types', df['SUBTYPE'].unique())
+selected_categories = st.multiselect('Select Sub-Types', df['SUBTYPE'].unique())
 
 scat3 = px.scatter(df[(df['APX_BLT_YR']!=0) & (df['TOT_VALUE']<300000000) & (df['ACRES']<500) & (df['SUBTYPE'].isin(selected_categories))], x='ACRES', y='TOT_VALUE', color='SUBTYPE', title='Acres of Land vs Total Value',opacity=.5)
 st.plotly_chart(scat3)
