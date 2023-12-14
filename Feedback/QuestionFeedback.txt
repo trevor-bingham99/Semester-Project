@@ -7,3 +7,5 @@ Due to Connor's feedback I looked into seeing if I could narrow the scope some, 
 From Cici: I think that is an interesting questions and could have some interesing things to look into, such as if the location or size is a bigger impact on prices.
 
 Due to Cici's feedback, I made sure my data set included some columns on those features to include in my EDA.
+
+My final topic was to look into Utah housing prices and features to see what has the biggest impact on price. 
