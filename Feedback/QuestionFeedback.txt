@@ -1,0 +1,9 @@
+Original question was to look into housing prices and features to see what has the biggest impact.
+
+From Connor: That's an interesting idea.  I'd recommend emphasizing housing for young marrieds or people just out of college, since that would probably be most interesting to people our age
+
+Due to Connor's feedback I looked into seeing if I could narrow the scope some, but coulnd't find much in regards to age of home buyers with housing information, but I did find a good data set for just a few counties in Utah, so I limited my question to just Utah to be more specific. 
+
+From Cici: I think that is an interesting questions and could have some interesing things to look into, such as if the location or size is a bigger impact on prices.
+
+Due to Cici's feedback, I made sure my data set included some columns on those features to include in my EDA.
