@@ -1,0 +1,1 @@
+This repository is a project where I looked into some details regarding housing prices and features, to see if we could identify what factors may play the biggest part in the total price of the house. For more information about how I gathered the data and what I found from my EDA, you can find my blog posts regarding that found here.
