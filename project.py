@@ -147,7 +147,7 @@ combined_df[columns_to_convert_to_float] = combined_df[columns_to_convert_to_flo
 scat1 = px.scatter(combined_df, x='TOT_VALUE', y='TOT_BD_FT2', color='SUBTYPE', title='Value vs Square Footage',opacity=.5)
 scat1.show()
 
-scat2 = px.scatter(combined_df[(combined_df['APX_BLT_YR']!=0) & (combined_df['TOT_BD_FT2']<9000000)], x='APX_BLT_YR', y='TOT_BD_FT2', color='SUBTYPE', title='Decade Built vs Square Footage',opacity=.5)
+scat2 = px.scatter(combined_df[(combined_df['APX_BLT_YR']!=0) & (combined_df['TOT_BD_FT2']<9000000)], x='APX_BLT_YR', y='TOT_BD_FT2', color='SUBTYPE', title='Year Built vs Square Footage',opacity=.5)
 scat2.show()
 
 scat3 = px.scatter(combined_df[(combined_df['APX_BLT_YR']!=0) & (combined_df['TOT_VALUE']<300000000) & (combined_df['ACRES']<500)], x='ACRES', y='TOT_VALUE', color='SUBTYPE', title='Acres of Land vs Total Value',opacity=.5)
