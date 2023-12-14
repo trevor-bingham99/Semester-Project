@@ -6,4 +6,4 @@ From Tyler: I think the post looks great, it is easy to read and flows well. The
 
 From the feedback I received, I went through and double checked the spelling and grammar with a few different checks, and found many errors I had to correct. I also added some more clarification at certain parts.
 
-My first draft was finished in the SHA number 775a5f9374214f55883cc4e624ae0a05024d83fc.
+My first draft was finished in the SHA number 775a5f9374214f55883cc4e624ae0a05024d83fc in my blog repository.

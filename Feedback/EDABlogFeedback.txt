@@ -7,4 +7,4 @@ From Tyler: I really like how you have this laid out, it flows very well from on
 
 To address some of the feedback I got, I went through and did a spell and grammar check, and made the corrections where necessary. From Connor's comment on the heat map being hard to understand, I went through and tried to clean it a little, but also added a section explaining if they wanted to understand/explore more, they should go to the dashboard where it is more interactive.
 
-My first draft was finished in the SHA number 775a5f9374214f55883cc4e624ae0a05024d83fc.
+My first draft was finished in the SHA number 775a5f9374214f55883cc4e624ae0a05024d83fc in my blog repository.

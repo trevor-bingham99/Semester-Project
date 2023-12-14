@@ -1,0 +1,8 @@
+From Connor: I like the dashboard and visualizations you made.  I like what you did with the correlation heatmap, it's a lot like what I did lol.  I was curious about this point in one of the graphs, which had 420 acres but is has 0 TOT_VALUE. I would also suggest seeing if there's some way you can optimize the code for this graph, since selecting the year range has a larger amount of wait time than I would expect
+
+From Cici:
+
+From Ashley: I think this is pretty cool, it is easy to read through and there are some good interactive elements that make it easy to play around with. Nicely done!
+
+Creating the dashboard wasn't too hard to do, since when I was doing my EDA and making charts, I used plotly so it would be easier to copy those graphs over. I did run into some issues with interactive elements, but I was able to figure those out after looking online at some documentation help. I also had an issue where I forgot to include a requirements.txt file and didn't realize for a while, but eventually got that figured out. 
+I looked into some of Connor's points, but the data just shows that point having 0 value for whatever reason, I am not sure why. And I looked into optimizing the year distribution, but couldn't find a way to make it load faster than it does already.
