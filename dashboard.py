@@ -41,7 +41,9 @@ st.plotly_chart(heatmap,use_container_width=True)
 
 st.write("You can explore a lot of the correlations here, but one thing this made me want to look a bit into how the different types of dwellings might impact things like acres of the property, so I created a scatterplot that shows how the amount of acres and the price impact each other, colored by their type.")
 
-scat3 = px.scatter(df[(df['APX_BLT_YR']!=0) & (df['TOT_VALUE']<300000000) & (df['ACRES']<500)], x='ACRES', y='TOT_VALUE', color='SUBTYPE', title='Acres of Land vs Total Value',opacity=.5)
+selected_categories = st.sidebar.multiselect('Select Sub-Types', df['SUBTYPE'].unique())
+
+scat3 = px.scatter(df[(df['APX_BLT_YR']!=0) & (df['TOT_VALUE']<300000000) & (df['ACRES']<500) & (df['SUBTYPE'].isin(selected_categories))], x='ACRES', y='TOT_VALUE', color='SUBTYPE', title='Acres of Land vs Total Value',opacity=.5)
 st.plotly_chart(scat3)
 
 st.write("I found this visualization to highlight some very interesting things. We see a lot of the dwellings of the same types clusted around each other, following a similar pattern based on the type of dwelling, which does follow what I would think. It is much easier for a single family house to have more land without impacting price too much, especially compared to apartment building or condos, which seem to have steep increaes in price for little increases in acreage. This then lead me to consider what the relationship between price and the square footage of the house.")
