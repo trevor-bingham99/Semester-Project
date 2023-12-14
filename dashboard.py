@@ -7,7 +7,7 @@ st.title('Utah Housing Data Exploration')
 
 df = pd.read_csv("https://raw.githubusercontent.com/trevor-bingham99/Semester-Project/main/Utah_Housing_Unit_Inventory.csv")
 
-st.write("This dashboard will walk through some visualization that I have made about Utah housing information, most of which is also found in a blog post [here](https://trevor-bingham99.github.io/2023/12/13/EDA.html). To start, we will take a look at the general distribution fo the data.")
+st.write("This dashboard will walk through some visualization that I have made about Utah housing information, most of which is also found in a blog post [here](https://trevor-bingham99.github.io/2023/12/13/EDA.html), and you can find my repository with all the data [here](https://github.com/trevor-bingham99/Semester-Project). To start, we will take a look at the general distribution fo the data.")
 
 hist = px.histogram(
     df[df['TOT_VALUE']<9000000],
