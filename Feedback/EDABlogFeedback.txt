@@ -1,7 +1,7 @@
 From Connor: Also looks good!  I found one little misspelling: "To acheive this"  I would also recommend briefly explaining what some of your variables mean, especially the ones in this graph and the other ones.  You talk about the important take aways in the written text, but it's hard for me to look at that and understand what's going on without more information.
 
 
-From Cici: 
+From Cici: I really like this blog, the heat map is really awesome. I saw that total_values has the highest correlation with unit_count, but the second graph is talking more specifically about different types of housing. Maybe do a little bit more explain on the differences between them? For example, I don't know what's the difference between single_family and single_family_adu.
 
 From Tyler: I really like how you have this laid out, it flows very well from one point to the next, and you can understand a lot of your process of looking into the data. I would maybe see about adding a bit more detail for the heatmap description, but it looks great. 
 

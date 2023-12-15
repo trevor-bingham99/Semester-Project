@@ -1,6 +1,6 @@
 From Connor: Looks good!  There were a couple misspellings and things that looked weird to me though: go to the table itself and scrap the data, I have an exmaple URL, In my code, I iclude all, For this all data we collect and use
 
-From Cici:
+From Cici: I like you explained really well about how you find data and trying to scrape it from websites, also you have links to direct people to different pages if we want to find out more. My suggestion will be add a picture maybe for better visualization even it's just about how you find the data. 
 
 From Tyler: I think the post looks great, it is easy to read and flows well. There are a few spelling errors, but other than that I think it's great. 
 

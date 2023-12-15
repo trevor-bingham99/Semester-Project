@@ -1,6 +1,6 @@
 From Connor: I like the dashboard and visualizations you made.  I like what you did with the correlation heatmap, it's a lot like what I did lol.  I was curious about this point in one of the graphs, which had 420 acres but is has 0 TOT_VALUE. I would also suggest seeing if there's some way you can optimize the code for this graph, since selecting the year range has a larger amount of wait time than I would expect
 
-From Cici:
+From Cici: This is really well done, a lot of interaction and explanations. I can't think of anything else.
 
 From Ashley: I think this is pretty cool, it is easy to read through and there are some good interactive elements that make it easy to play around with. Nicely done!
 
